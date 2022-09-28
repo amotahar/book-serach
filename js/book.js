@@ -2,8 +2,21 @@
 const searchBook = () =>{
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
-    console.log(searchText)
+    searchField.value='';
+    // console.log(searchText)
+
+    const url = `https://openlibrary.org/search.json?q=${searchText}`
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayBook(data))
     
 }
-// const bookShow = () => {}
+
+searchBook();
+
+
+const displayBook = books => {
+   console.log(books);
+}
+
     
